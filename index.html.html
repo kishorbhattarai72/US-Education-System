@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USA Technical Education System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .pathway {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .level {
+            flex: 1;
+            min-width: 280px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .level:hover {
+            transform: translateY(-5px);
+        }
+        
+        .secondary {
+            border-left-color: #4CAF50;
+        }
+        
+        .post-secondary {
+            border-left-color: #2196F3;
+        }
+        
+        .professional {
+            border-left-color: #FF9800;
+        }
+        
+        .level h3 {
+            margin: 0 0 15px 0;
+            color: #333;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .secondary .icon { background: #4CAF50; }
+        .post-secondary .icon { background: #2196F3; }
+        .professional .icon { background: #FF9800; }
+        
+        .level ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .level li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        
+        .level li:last-child {
+            border-bottom: none;
+        }
+        
+        .level li::before {
+            content: "▸";
+            color: #666;
+            margin-right: 8px;
+        }
+        
+        .flow-chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .flow-box {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px 20px;
+            text-align: center;
+            min-width: 120px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .flow-arrow {
+            font-size: 24px;
+            color: #666;
+            margin: 0 10px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        
+        .cte-programs {
+            background: #f0f8ff;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .cte-programs h3 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.6em;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .program-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #1e3c72;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .program-item h4 {
+            margin: 0 0 8px 0;
+            color: #1e3c72;
+        }
+        
+        .program-item p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🇺🇸 USA Formal Technical Education System</h1>
+            <p>Career and Technical Education Pathways</p>
+        </div>
+        
+        <div class="content">
+            <div class="flow-chart">
+                <div class="flow-box">
+                    <strong>Elementary</strong><br>
+                    K-5
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">
+                    <strong>Middle School</strong><br>
+                    6-8
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">
+                    <strong>High School</strong><br>
+                    9-12 + CTE
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">
+                    <strong>Post-Secondary</strong><br>
+                    Technical Education
+                </div>
+            </div>
+            
+            <div class="pathway">
+                <div class="level secondary">
+                    <h3><span class="icon">🏫</span>Secondary Level (Grades 9-12)</h3>
+                    <ul>
+                        <li>Career and Technical Education (CTE) Programs</li>
+                        <li>Integrated with Academic Curriculum</li>
+                        <li>Industry-Based Learning</li>
+                        <li>Dual Enrollment Opportunities</li>
+                        <li>Work-Based Learning Programs</li>
+                        <li>Career Clusters and Pathways</li>
+                    </ul>
+                </div>
+                
+                <div class="level post-secondary">
+                    <h3><span class="icon">🎓</span>Post-Secondary Options</h3>
+                    <ul>
+                        <li>Community Colleges (Associate Degrees)</li>
+                        <li>Technical/Trade Schools</li>
+                        <li>Certificate Programs</li>
+                        <li>Four-Year Universities (Tech Programs)</li>
+                        <li>Apprenticeship Programs</li>
+                        <li>Industry Certifications</li>
+                    </ul>
+                </div>
+                
+                <div class="level professional">
+                    <h3><span class="icon">💼</span>Professional Development</h3>
+                    <ul>
+                        <li>Continuing Education</li>
+                        <li>Professional Certifications</li>
+                        <li>Industry Updates</li>
+                        <li>Advanced Specializations</li>
+                        <li>Graduate Programs</li>
+                        <li>Leadership Training</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cte-programs">
+                <h3>🔧 Career and Technical Education Program Areas</h3>
+                <div class="program-grid">
+                    <div class="program-item">
+                        <h4>🌾 Agriculture, Food & Natural Resources</h4>
+                        <p>Farming, forestry, fishing, veterinary science</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>🏗️ Architecture & Construction</h4>
+                        <p>Building trades, design, engineering</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>🎨 Arts, A/V Technology & Communications</h4>
+                        <p>Media production, journalism, performing arts</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>💼 Business Management & Administration</h4>
+                        <p>Entrepreneurship, finance, human resources</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>👶 Education & Training</h4>
+                        <p>Teaching, childcare, professional development</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>💡 Energy</h4>
+                        <p>Renewable energy, utilities, power systems</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>💰 Finance</h4>
+                        <p>Banking, insurance, securities, investments</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>🏛️ Government & Public Administration</h4>
+                        <p>Public policy, law enforcement, military</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>🏥 Health Science</h4>
+                        <p>Healthcare, biotechnology, medical research</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>🏨 Hospitality & Tourism</h4>
+                        <p>Travel, lodging, food service, recreation</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>👥 Human Services</h4>
+                        <p>Social work, counseling, family services</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>💻 Information Technology</h4>
+                        <p>Programming, cybersecurity, networking</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>⚖️ Law, Public Safety & Security</h4>
+                        <p>Legal services, corrections, emergency services</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>🏭 Manufacturing</h4>
+                        <p>Production, quality control, logistics</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>📈 Marketing</h4>
+                        <p>Sales, advertising, market research</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>🔬 Science, Technology, Engineering & Mathematics</h4>
+                        <p>STEM fields, research, innovation</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>🚛 Transportation, Distribution & Logistics</h4>
+                        <p>Supply chain, logistics, transportation systems</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">16</div>
+                    <div class="stat-label">Career Clusters</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">79</div>
+                    <div class="stat-label">Career Pathways</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12M+</div>
+                    <div class="stat-label">Students in CTE</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1,100+</div>
+                    <div class="stat-label">Community Colleges</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
