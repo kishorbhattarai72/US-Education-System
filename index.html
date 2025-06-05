@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Education Structure: Nepal vs USA</title>
+    <title>Secondary Level Technical Education: Nepal vs USA</title>
     <style>
         * {
             margin: 0;
@@ -16,14 +16,17 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .container {
-            max-width: 1400px;
-            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
             overflow: hidden;
         }
         
@@ -31,29 +34,33 @@
             background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 40px 30px;
         }
         
         .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 2.8em;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .header p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             opacity: 0.9;
+            font-weight: 300;
         }
         
         .comparison-frame {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: 800px;
+            min-height: 600px;
         }
         
         .country-section {
-            padding: 30px;
+            padding: 40px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .nepal {
@@ -68,92 +75,147 @@
         
         .country-header {
             text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
         }
         
         .country-title {
-            font-size: 2.2em;
+            font-size: 2.5em;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .flag-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
+            font-size: 4em;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 300;
         }
         
         .education-level {
-            margin-bottom: 25px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
         
         .level-title {
-            font-size: 1.4em;
+            font-size: 1.6em;
             font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .level-icon {
+            font-size: 1.3em;
+        }
+        
+        .programs {
+            margin-left: 20px;
+        }
+        
+        .program-item {
             margin-bottom: 15px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 1.05em;
+            border-left: 4px solid rgba(255, 255, 255, 0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .program-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(5px);
+        }
+        
+        .program-name {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .duration {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+        
+        .key-features {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border-left: 5px solid rgba(255, 255, 255, 0.6);
+        }
+        
+        .key-features h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .level-icon {
-            font-size: 1.2em;
-        }
-        
-        .programs {
-            margin-left: 15px;
-        }
-        
-        .program-item {
-            margin-bottom: 10px;
-            padding: 8px 15px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            font-size: 0.95em;
-            border-left: 3px solid rgba(255, 255, 255, 0.5);
-        }
-        
-        .duration {
-            float: right;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: bold;
-        }
-        
-        .key-features {
-            margin-top: 15px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            border-left: 4px solid rgba(255, 255, 255, 0.5);
-        }
-        
-        .key-features h4 {
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        
         .feature-list {
-            font-size: 0.9em;
-            line-height: 1.6;
+            font-size: 1em;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        .feature-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: bold;
         }
         
         .separator {
             position: absolute;
             top: 0;
             right: 0;
-            width: 2px;
+            width: 3px;
             height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4), transparent);
+        }
+        
+        .entry-requirement {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+        
+        .entry-requirement strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
         }
         
         @media (max-width: 768px) {
@@ -166,32 +228,15 @@
             }
             
             .header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
             
             .country-title {
-                font-size: 1.8em;
+                font-size: 2em;
             }
-        }
-        
-        .scroll-indicator {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            opacity: 0.7;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(-50%);
-            }
-            40% {
-                transform: translateY(-60%);
-            }
-            60% {
-                transform: translateY(-55%);
+            
+            .country-section {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -199,8 +244,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎓 Technical Education Systems Comparison</h1>
-            <p>Formal Technical Education Structure: Nepal vs United States</p>
+            <h1>🎓 Secondary Level Technical Education</h1>
+            <p>Formal Secondary Technical Education Structure Comparison</p>
         </div>
         
         <div class="comparison-frame">
@@ -210,6 +255,12 @@
                 <div class="country-header">
                     <div class="flag-icon">🇳🇵</div>
                     <div class="country-title">NEPAL</div>
+                    <div class="subtitle">Secondary Technical Education System</div>
+                </div>
+                
+                <div class="entry-requirement">
+                    <strong>📚 Entry Requirement:</strong>
+                    Completion of Grade 10 (SEE - Secondary Education Examination)
                 </div>
                 
                 <div class="education-level">
@@ -219,125 +270,57 @@
                     </div>
                     <div class="programs">
                         <div class="program-item">
-                            Pre-Diploma in Engineering <span class="duration">18 months</span>
+                            <div class="program-name">Pre-Diploma in Engineering</div>
+                            <div class="duration">18 months</div>
                         </div>
                         <div class="program-item">
-                            Junior Technical Assistant (JTA) <span class="duration">15 months</span>
+                            <div class="program-name">Junior Technical Assistant (JTA)</div>
+                            <div class="duration">15 months</div>
                         </div>
                         <div class="program-item">
-                            Assistant Level Technician <span class="duration">18 months</span>
+                            <div class="program-name">Assistant Level Technician</div>
+                            <div class="duration">18 months</div>
+                        </div>
+                        <div class="program-item">
+                            <div class="program-name">Basic Technical Certificate</div>
+                            <div class="duration">12 months</div>
                         </div>
                     </div>
                     <div class="key-features">
-                        <h4>Key Features:</h4>
+                        <h4>🎯 Key Features:</h4>
                         <div class="feature-list">
-                            • Entry after Grade 10 (SEE)<br>
-                            • Practical skill-oriented training<br>
-                            • Direct employment pathway
+                            <li>Administered by CTEVT (Council for Technical Education and Vocational Training)</li>
+                            <li>Practical skill-oriented training with 70% hands-on work</li>
+                            <li>Direct pathway to employment in technical fields</li>
+                            <li>Bridge program to higher technical education</li>
+                            <li>Industry-relevant curriculum with local context</li>
+                            <li>Workshop-based learning environment</li>
                         </div>
                     </div>
                 </div>
                 
                 <div class="education-level">
                     <div class="level-title">
-                        <span class="level-icon">🎯</span>
-                        Diploma Level
+                        <span class="level-icon">🔧</span>
+                        Vocational Training Programs
                     </div>
                     <div class="programs">
                         <div class="program-item">
-                            Diploma in Engineering <span class="duration">3 years</span>
+                            <div class="program-name">Skill Development Training</div>
+                            <div class="duration">6-12 months</div>
                         </div>
                         <div class="program-item">
-                            Diploma in Computer Engineering <span class="duration">3 years</span>
-                        </div>
-                        <div class="program-item">
-                            Diploma in Civil Engineering <span class="duration">3 years</span>
-                        </div>
-                        <div class="program-item">
-                            Diploma in Electronics & Communication <span class="duration">3 years</span>
+                            <div class="program-name">Trade Apprenticeship</div>
+                            <div class="duration">1-2 years</div>
                         </div>
                     </div>
                     <div class="key-features">
-                        <h4>Key Features:</h4>
+                        <h4>🎯 Key Features:</h4>
                         <div class="feature-list">
-                            • Entry after Grade 12 or TSLC<br>
-                            • Council for Technical Education and Vocational Training (CTEVT)<br>
-                            • Industry-focused curriculum
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="education-level">
-                    <div class="level-title">
-                        <span class="level-icon">🎓</span>
-                        Bachelor Level
-                    </div>
-                    <div class="programs">
-                        <div class="program-item">
-                            Bachelor in Engineering (BE) <span class="duration">4 years</span>
-                        </div>
-                        <div class="program-item">
-                            Bachelor in Computer Engineering <span class="duration">4 years</span>
-                        </div>
-                        <div class="program-item">
-                            Bachelor in Information Technology <span class="duration">4 years</span>
-                        </div>
-                    </div>
-                    <div class="key-features">
-                        <h4>Key Features:</h4>
-                        <div class="feature-list">
-                            • University-level technical education<br>
-                            • Research and theoretical foundation<br>
-                            • Professional engineering preparation
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="education-level">
-                    <div class="level-title">
-                        <span class="level-icon">🔬</span>
-                        Master & PhD Level
-                    </div>
-                    <div class="programs">
-                        <div class="program-item">
-                            Master in Engineering (ME) <span class="duration">2 years</span>
-                        </div>
-                        <div class="program-item">
-                            Master in Technology (M.Tech) <span class="duration">2 years</span>
-                        </div>
-                        <div class="program-item">
-                            PhD in Engineering <span class="duration">3-5 years</span>
-                        </div>
-                    </div>
-                    <div class="key-features">
-                        <h4>Key Features:</h4>
-                        <div class="feature-list">
-                            • Advanced research and specialization<br>
-                            • Academic and industry leadership<br>
-                            • Innovation and development focus
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="education-level">
-                    <div class="level-title">
-                        <span class="level-icon">🏭</span>
-                        Vocational Training
-                    </div>
-                    <div class="programs">
-                        <div class="program-item">
-                            Skill Development Training <span class="duration">3-12 months</span>
-                        </div>
-                        <div class="program-item">
-                            Apprenticeship Programs <span class="duration">1-2 years</span>
-                        </div>
-                    </div>
-                    <div class="key-features">
-                        <h4>Key Features:</h4>
-                        <div class="feature-list">
-                            • CTEVT and private institutions<br>
-                            • Industry partnerships<br>
-                            • Immediate employment focus
+                            <li>Short-term intensive skill development</li>
+                            <li>Industry partnership programs</li>
+                            <li>Immediate employment focus</li>
+                            <li>Flexible scheduling options</li>
                         </div>
                     </div>
                 </div>
@@ -348,172 +331,77 @@
                 <div class="country-header">
                     <div class="flag-icon">🇺🇸</div>
                     <div class="country-title">UNITED STATES</div>
+                    <div class="subtitle">Secondary Technical Education System</div>
+                </div>
+                
+                <div class="entry-requirement">
+                    <strong>📚 Entry Requirement:</strong>
+                    Enrollment in High School (Grades 9-12) or High School Diploma
                 </div>
                 
                 <div class="education-level">
                     <div class="level-title">
                         <span class="level-icon">🏫</span>
-                        High School Technical Education
+                        Career and Technical Education (CTE)
                     </div>
                     <div class="programs">
                         <div class="program-item">
-                            Career and Technical Education (CTE) <span class="duration">2-4 years</span>
+                            <div class="program-name">High School CTE Programs</div>
+                            <div class="duration">2-4 years</div>
                         </div>
                         <div class="program-item">
-                            Vocational High School Programs <span class="duration">4 years</span>
+                            <div class="program-name">Vocational High School</div>
+                            <div class="duration">4 years</div>
                         </div>
                         <div class="program-item">
-                            Dual Enrollment Technical Courses <span class="duration">1-2 years</span>
+                            <div class="program-name">Dual Enrollment Technical Courses</div>
+                            <div class="duration">1-2 years</div>
+                        </div>
+                        <div class="program-item">
+                            <div class="program-name">Regional Technical Centers</div>
+                            <div class="duration">2-3 years</div>
                         </div>
                     </div>
                     <div class="key-features">
-                        <h4>Key Features:</h4>
+                        <h4>🎯 Key Features:</h4>
                         <div class="feature-list">
-                            • Integrated with high school diploma<br>
-                            • Industry certifications available<br>
-                            • Pathway to post-secondary education
+                            <li>Integrated with regular high school curriculum</li>
+                            <li>Industry-recognized certifications available</li>
+                            <li>Pathway to both employment and post-secondary education</li>
+                            <li>Work-based learning opportunities</li>
+                            <li>Modern equipment and technology integration</li>
+                            <li>College credit opportunities through dual enrollment</li>
                         </div>
                     </div>
                 </div>
                 
                 <div class="education-level">
                     <div class="level-title">
-                        <span class="level-icon">🎯</span>
-                        Certificate Programs
+                        <span class="level-icon">🔧</span>
+                        Technical Certificate Programs
                     </div>
                     <div class="programs">
                         <div class="program-item">
-                            Technical Certificates <span class="duration">6 months - 2 years</span>
+                            <div class="program-name">Post-Secondary Certificates</div>
+                            <div class="duration">6 months - 2 years</div>
                         </div>
                         <div class="program-item">
-                            Industry Certifications <span class="duration">3 months - 1 year</span>
-                        </div>
-                        <div class="program-item">
-                            Apprenticeship Programs <span class="duration">1-4 years</span>
+                            <div class="program-name">Apprenticeship Programs</div>
+                            <div class="duration">1-4 years</div>
                         </div>
                     </div>
                     <div class="key-features">
-                        <h4>Key Features:</h4>
+                        <h4>🎯 Key Features:</h4>
                         <div class="feature-list">
-                            • Community colleges and trade schools<br>
-                            • Industry-specific skills<br>
-                            • Stackable credentials
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="education-level">
-                    <div class="level-title">
-                        <span class="level-icon">🎓</span>
-                        Associate Degree
-                    </div>
-                    <div class="programs">
-                        <div class="program-item">
-                            Associate of Applied Science (AAS) <span class="duration">2 years</span>
-                        </div>
-                        <div class="program-item">
-                            Associate of Science in Engineering <span class="duration">2 years</span>
-                        </div>
-                        <div class="program-item">
-                            Associate in Technical Studies <span class="duration">2 years</span>
-                        </div>
-                    </div>
-                    <div class="key-features">
-                        <h4>Key Features:</h4>
-                        <div class="feature-list">
-                            • Community college based<br>
-                            • Transfer to 4-year programs<br>
-                            • Career-ready preparation
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="education-level">
-                    <div class="level-title">
-                        <span class="level-icon">🏛️</span>
-                        Bachelor's Degree
-                    </div>
-                    <div class="programs">
-                        <div class="program-item">
-                            Bachelor of Science in Engineering <span class="duration">4 years</span>
-                        </div>
-                        <div class="program-item">
-                            Bachelor of Engineering Technology <span class="duration">4 years</span>
-                        </div>
-                        <div class="program-item">
-                            Bachelor of Applied Science <span class="duration">4 years</span>
-                        </div>
-                    </div>
-                    <div class="key-features">
-                        <h4>Key Features:</h4>
-                        <div class="feature-list">
-                            • Universities and technical colleges<br>
-                            • ABET accreditation for engineering<br>
-                            • Professional licensure pathway
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="education-level">
-                    <div class="level-title">
-                        <span class="level-icon">🔬</span>
-                        Graduate Level
-                    </div>
-                    <div class="programs">
-                        <div class="program-item">
-                            Master of Engineering (MEng) <span class="duration">1-2 years</span>
-                        </div>
-                        <div class="program-item">
-                            Master of Science (MS) <span class="duration">2 years</span>
-                        </div>
-                        <div class="program-item">
-                            Doctor of Philosophy (PhD) <span class="duration">4-7 years</span>
-                        </div>
-                        <div class="program-item">
-                            Professional Doctorate (Eng.D) <span class="duration">3-4 years</span>
-                        </div>
-                    </div>
-                    <div class="key-features">
-                        <h4>Key Features:</h4>
-                        <div class="feature-list">
-                            • Research universities<br>
-                            • Specialization and research focus<br>
-                            • Academic and industry leadership
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="education-level">
-                    <div class="level-title">
-                        <span class="level-icon">🏭</span>
-                        Continuing Education
-                    </div>
-                    <div class="programs">
-                        <div class="program-item">
-                            Professional Development <span class="duration">Ongoing</span>
-                        </div>
-                        <div class="program-item">
-                            Industry Certifications <span class="duration">Variable</span>
-                        </div>
-                        <div class="program-item">
-                            Online Technical Courses <span class="duration">Flexible</span>
-                        </div>
-                    </div>
-                    <div class="key-features">
-                        <h4>Key Features:</h4>
-                        <div class="feature-list">
-                            • Lifelong learning approach<br>
-                            • Industry partnerships<br>
-                            • Flexible delivery methods
+                            <li>Community college and trade school delivery</li>
+                            <li>Industry-specific skill development</li>
+                            <li>Stackable credentials leading to degrees</li>
+                            <li>Strong employer partnerships</li>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="scroll-indicator">
-        <div style="color: white; font-size: 24px;">⬇️</div>
     </div>
 </body>
 </html>
